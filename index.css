@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.text {
+    color: white;
+    font-size: 20px;
+}
+.button {
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+}
+body {
+    background-color: black;
+    overflow: hidden;
+}
+#game {
+    width: 700px;
+    height: 700px;
+    background-color: black;
+    border: 10px solid white;
+    display: inline-block;
+    box-sizing: border-box;
+}
+#game div {
+    position: absolute;
+}
+#points {
+    color:white;
+}
+.nav {
+    width: 100px;
+    height: 15px;
+    background-color: blue;
+}
+
+.enemy {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+.shot {
+    width: 2px;
+    height: 16px;
+    background-color: white;
+}
