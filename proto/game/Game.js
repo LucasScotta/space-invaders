@@ -35,15 +35,12 @@ define(['factory/Nav',
      * Init game on lvl 1
      */
      initLvl() {
-        let posX = this.size.border + 45
-        let posY = this.size . border + 20
+        const width = this.size.width + this.size.border - 50
+        const height = (this.size.height + this.size.border) / 2
         for (let i = 0;i < 7;i += 1) {
             for (let i = 0;i < 7;i += 1) {
-                this.enemyM.add(Enemy(posX, posY))
-                posX += 75
+                this.enemyM.add(Enemy(width, height))
             }
-            posX = this.size.border + 45
-            posY += 60
         }
     }
     addShot(shot) {

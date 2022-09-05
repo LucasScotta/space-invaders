@@ -4,9 +4,11 @@ define(['proto/object/util/setup-element',
     'factory/Enemy-Shot',
     'proto/object/util/get-random'], (setupElement, Shot, getRandom) => {
     return class Enemy {
-        constructor(x, y) {
+        constructor(width, height) {
             this.$el = setupElement('enemy')
-            this.pos = {x,y}
+            this.pos = {}
+            this.gameSize = {width, height}
+            this.setPos(this.gameSize)
             this.size = {
                 width:30,
                 height:30,
