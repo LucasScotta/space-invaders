@@ -5,7 +5,6 @@ define([], () => class Button {
         Object.assign(this, options)
         this.game = game
         this.setButton()
-        console.log(this)
     }
     setButton() {
         const game = document.getElementById('game')

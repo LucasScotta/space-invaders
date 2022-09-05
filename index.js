@@ -17,6 +17,7 @@ require(['proto/game/Game',
             game.updateTexts()
             if (!game.config.lifes) return
             if (!game.config.pause) return update()
+            game.nav.update(mouse.x, game)
             if (mouse.click) {
                 game.pause()
                 mouse.click = !mouse.click
@@ -24,13 +25,10 @@ require(['proto/game/Game',
             }
         }
         const update = () => {
-            if (mouse.change) {
                 game.nav.update(mouse.x, game)
-                mouse.change = !mouse.change
                 if(mouse.click) {
                     game.nav.shot(game)
                     mouse.click = !mouse.click
-                }
             }
             game.update()
         }

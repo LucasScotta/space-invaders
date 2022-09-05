@@ -5,7 +5,6 @@ define([], () => {
     const moveNav = (event, mouse) => {
         mouse.x = event.x
         mouse.y = event.y
-        mouse.change = !mouse.change
     }
     const press = (key, game) => {
         if (key === 'p') {
