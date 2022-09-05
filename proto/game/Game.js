@@ -16,16 +16,16 @@ define(['factory/Nav',
             border: 10,
         }
         this.pos = {x:0, y:0}
-        this.nav = Nav(this.size.height, this.pos.y)
         this.config = {
             level: 1,
             lifes: 3,
             pause: 1,
             points: 0,
         }
+        this.start()
+        this.nav = Nav(this.size.height, this.pos.y)
         this.buttons = createButtons({x:this.size.width + this.size.border, y:this.pos.y}, this)
         this.texts = createTexts(this)
-        this.start()
     }
     start() {
         const game = document.createElement('div')

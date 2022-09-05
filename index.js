@@ -1,19 +1,36 @@
 'use strict'
 require(['proto/game/Game',
     'control/handler'], (Game, handler) => {
+        let game
         const mouse = {
             x:0,
             y:0,
             click: 0,
             change:false,
         }
-        const game = new Game(mouse)
-        window.game = game
+        const startGame = () => {
+            if (!!game) return
+            game = new Game()
+            window.game = game
+        }
+        const start = document.getElementById('start')
 
-        document.onmousemove = (event) => handler.moveNav(event, mouse)
-        document.onkeydown = (event) => handler.press(event.key, game)
-        document.onclick = () => handler.click(mouse, game)
+        start.onclick = (e) => {
+            startGame()
+            start.remove()
+        }
+
+        document.onmousemove = (event) => {
+            if (!!game) return handler.moveNav(event, mouse)
+        }
+        document.onkeydown = (event) => {
+            if (!!game) return handler.press(event.key, game)
+        }
+        document.onclick = () => {
+            if (!!game) return handler.click(mouse, game)
+        }
         const loop = () => {
+            if (!game) return
             game.updateTexts()
             if (!game.config.lifes) return
             if (!game.config.pause) return update()
@@ -32,6 +49,6 @@ require(['proto/game/Game',
             }
             game.update()
         }
-        let time = 5
+        let time = 1000 / 100
         setInterval(loop, time)
 })
