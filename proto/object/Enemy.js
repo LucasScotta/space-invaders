@@ -14,15 +14,17 @@ define(['proto/object/util/setup-element',
                 height:30,
             }
             this.movement = {
-                dirX: 0.5,
-                movesX: 1,
-                movesY: 1,
-                sumX: 1,
-                sumY: 1,
-                dirY: 5,
+                dirX: !!Math.floor(Math.random() * 2) ? 1 : -1,
+                dirY: !!Math.floor(Math.random() * 2) ? 1 : -1,
             }
             this.shotDir = 1
             this.paint()
+        }
+        setPos(sizes) {
+            const {width, height} = sizes
+            
+            this.pos.x = Math.floor(Math.random() * width)
+            this.pos.y = Math.floor(Math.random() * height)
         }
         /**
          * paint enemy
@@ -36,28 +38,28 @@ define(['proto/object/util/setup-element',
          * @returns Boolean
          */
         isTop() {
-            return this.movement.movesY === 0
+            return this.pos.y <= 0
         }
         /**
          * 
          * @returns Boolean
          */
         isBottom() {
-            return this.movement.movesY === 3
+            return this.pos.y >= this.gameSize.height
         }
         /**
          * 
          * @returns Boolean
          */
         isRight() {
-            return this.movement.movesX === 275
+            return this.pos.x >= this.gameSize.width
         }
         /**
          * 
          * @returns Boolean
          */
         isLeft() {
-            return this.movement.movesX === 0
+            return this.pos.x <= 0
         }
         /**
          * remove this element from HTML
@@ -98,6 +100,7 @@ define(['proto/object/util/setup-element',
                 this.shot(game)
             }
             this.pos.x += this.movement.dirX
+            this.pos.y += this.movement.dirY
             this.movement.movesX += this.movement.sumX
             this.paint()
         }
