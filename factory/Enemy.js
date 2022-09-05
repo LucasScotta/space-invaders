@@ -1,5 +1,5 @@
 'use strict'
 /*globals define*/
-define(['proto/object/Enemy'], (Enemy) => (x, y) => {
-    return new Enemy(x, y)
+define(['proto/object/Enemy'], (Enemy) => (size) => {
+    return new Enemy(size)
 })

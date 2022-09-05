@@ -39,7 +39,7 @@ define(['factory/Nav',
         const height = (this.size.height + this.size.border) / 2
         for (let i = 0;i < 7;i += 1) {
             for (let i = 0;i < 7;i += 1) {
-                this.enemyM.add(Enemy(width, height))
+                this.enemyM.add(Enemy(this.size))
             }
         }
     }

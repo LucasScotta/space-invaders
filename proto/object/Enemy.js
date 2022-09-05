@@ -4,15 +4,15 @@ define(['proto/object/util/setup-element',
     'factory/Enemy-Shot',
     'proto/object/util/get-random'], (setupElement, Shot, getRandom) => {
     return class Enemy {
-        constructor(width, height) {
+        constructor(gameSize) {
             this.$el = setupElement('enemy')
             this.pos = {}
-            this.gameSize = {width, height}
-            this.setPos(this.gameSize)
+            this.gameSize = gameSize
             this.size = {
                 width:30,
                 height:30,
             }
+            this.setPos(this.gameSize)
             this.movement = {
                 dirX: !!Math.floor(Math.random() * 2) ? 1 : -1,
                 dirY: !!Math.floor(Math.random() * 2) ? 1 : -1,
@@ -22,9 +22,12 @@ define(['proto/object/util/setup-element',
         }
         setPos(sizes) {
             const {width, height} = sizes
-            
-            this.pos.x = Math.floor(Math.random() * width)
-            this.pos.y = Math.floor(Math.random() * height)
+            while (this.pos.x <= this.gameSize.border || this.pos.x >= this.gameSize.width - this.size.width || !this.pos.x) {
+                this.pos.x = Math.floor(Math.random() * width)
+            }
+            while (this.pos.y <= this.gameSize.border || this.pos.y >= this.gameSize.width / 2 - this.size.height || !this.pos.y) {
+                this.pos.y = Math.floor(Math.random() * width)
+            }
         }
         /**
          * paint enemy
@@ -38,28 +41,28 @@ define(['proto/object/util/setup-element',
          * @returns Boolean
          */
         isTop() {
-            return this.pos.y <= 0
+            return this.pos.y <= this.gameSize.border
         }
         /**
          * 
          * @returns Boolean
          */
         isBottom() {
-            return this.pos.y >= this.gameSize.height
+            return this.pos.y >= this.gameSize.height / 2 - this.size.height
         }
         /**
          * 
          * @returns Boolean
          */
         isRight() {
-            return this.pos.x >= this.gameSize.width
+            return this.pos.x >= this.gameSize.width - this.size.width
         }
         /**
          * 
          * @returns Boolean
          */
         isLeft() {
-            return this.pos.x <= 0
+            return this.pos.x <= this.gameSize.border
         }
         /**
          * remove this element from HTML
