@@ -28,6 +28,11 @@ define(['factory/Nav',
         this.start()
     }
     start() {
+        const game = document.createElement('div')
+        game.id = 'game'
+        game.style.width = `${this.size.width}px`
+        game.style.height = `${this.size.height}px`
+        document.getElementsByTagName('main')[0].append(game)
         this.initLvl()
         this.config.level = 1
     }

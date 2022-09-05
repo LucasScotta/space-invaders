@@ -11,6 +11,17 @@
     cursor: pointer;
     font-size: 30px;
 }
+.start-container {
+    display: flex;
+    justify-content: center;
+}
+#start {
+    color: white;
+    height: 100px;
+    width: 200px;
+    font-size: 40px;
+    background-color: black;
+}
 body {
     background-color: black;
     overflow: hidden;
