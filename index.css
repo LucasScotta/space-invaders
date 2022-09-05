@@ -18,8 +18,8 @@ body {
 #game {
     width: 700px;
     height: 700px;
-    background-color: black;
-    border: 10px solid white;
+    border: 10px solid rgb(66, 201, 32);
+    border-radius: 5%;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -32,13 +32,12 @@ body {
 .nav {
     width: 100px;
     height: 15px;
-    background-color: blue;
 }
 
 .enemy {
     width: 30px;
     height: 30px;
-    background-color: red;
+    border-radius: 10%;
 }
 
 .shot {

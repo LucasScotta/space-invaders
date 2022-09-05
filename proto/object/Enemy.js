@@ -78,6 +78,10 @@ define(['proto/object/util/setup-element',
          * update enemy
          */
         update() {
+            const colors = ['red', 'blue', 'green', 'yellow', 'white', 'pink', 'gray', 'violet', 'rebeccapurple']
+            const color = colors[Math.floor(Math.random() * colors.length)]
+            this.$el.style.background = color
+            this.$el.style.boxShadow = `0 0 10px ${color}`
             if (this.isTop() || this.isBottom()) {
                 this.movement.dirY *= -1
                 this.movement.sumY *= -1

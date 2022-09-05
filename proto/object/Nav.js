@@ -107,6 +107,10 @@ define(['proto/object/util/setup-element',
          * @param {Object} game 
          */
         update(x, game) {
+            const colors = ['red', 'blue', 'green', 'yellow', 'white', 'pink', 'gray', 'violet', 'rebeccapurple']
+            const color = colors[Math.floor(Math.random() * colors.length)]
+            this.$el.style.background = color
+            this.$el.style.boxShadow = `0 0 10px ${color}`
             const border = game.size.border
             const width = game.size.width
             this.move(x, border, width)
