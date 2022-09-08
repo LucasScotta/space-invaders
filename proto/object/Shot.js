@@ -50,9 +50,9 @@ define(['proto/object/util/setup-element'], (setupElement) => class Shot {
      */
     paint() {
         const colors = ['red', 'blue', 'green', 'yellow', 'white', 'pink', 'gray', 'violet', 'rebeccapurple']
-            const color = colors[Math.floor(Math.random() * colors.length)]
-            this.$el.style.background = color
-            this.$el.style.boxShadow = `0 0 10px ${color}`
+        const color = colors[Math.floor(Math.random() * colors.length)]
+        this.$el.style.background = color
+        this.$el.style.boxShadow = `0 0 10px ${color}`
         this.$el.style.top = `${this.pos.y}px`
         this.$el.style.left = `${this.pos.x}px`
     }
