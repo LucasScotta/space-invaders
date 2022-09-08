@@ -7,7 +7,7 @@ define(['proto/object/util/setup-element',
             this.$el = setupElement('nav')
             this.size = {
                 width: 100,
-                height: 50,
+                height: 15,
             }
             this.pos = {
                 y:height-50,
